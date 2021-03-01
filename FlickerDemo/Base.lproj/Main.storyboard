@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="m4A-gS-i95">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Jer-Is-C0t">
+            <objects>
+                <navigationController id="m4A-gS-i95" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="i5t-7C-9N3">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="T1V-WF-mTL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AfA-cW-4fz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2697" y="13"/>
+        </scene>
+        <!--搜尋輸入頁-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SearchVC" customModule="FlickerDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OQ0-5G-cSe">
+                                <rect key="frame" x="20.5" y="340.5" width="373" height="269"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-je-A2Q">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="89.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="預搜尋內容" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SOO-N0-4fD">
+                                                <rect key="frame" x="0.0" y="9" width="373" height="71.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="SOO-N0-4fD" firstAttribute="height" secondItem="MPf-je-A2Q" secondAttribute="height" multiplier="0.8" id="XfT-MN-HCM"/>
+                                            <constraint firstItem="SOO-N0-4fD" firstAttribute="width" secondItem="MPf-je-A2Q" secondAttribute="width" id="dNa-KA-zVs"/>
+                                            <constraint firstItem="SOO-N0-4fD" firstAttribute="centerX" secondItem="MPf-je-A2Q" secondAttribute="centerX" id="gBo-zE-Ek8"/>
+                                            <constraint firstItem="SOO-N0-4fD" firstAttribute="centerY" secondItem="MPf-je-A2Q" secondAttribute="centerY" id="mzZ-nT-CMn"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dT4-28-4RO">
+                                        <rect key="frame" x="0.0" y="89.5" width="373" height="90"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="每頁呈現數量" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eaU-eW-7zo">
+                                                <rect key="frame" x="0.0" y="9" width="373" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="eaU-eW-7zo" firstAttribute="centerX" secondItem="dT4-28-4RO" secondAttribute="centerX" id="pJR-7i-ovN"/>
+                                            <constraint firstItem="eaU-eW-7zo" firstAttribute="centerY" secondItem="dT4-28-4RO" secondAttribute="centerY" id="tri-m8-pVb"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iA4-tZ-JMn">
+                                        <rect key="frame" x="0.0" y="179.5" width="373" height="89.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DY2-ac-b48">
+                                                <rect key="frame" x="0.0" y="9" width="373" height="71.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="搜尋">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="doSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RFT-zr-P71"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="DY2-ac-b48" firstAttribute="centerY" secondItem="iA4-tZ-JMn" secondAttribute="centerY" id="HKO-JW-nPZ"/>
+                                            <constraint firstItem="DY2-ac-b48" firstAttribute="centerX" secondItem="iA4-tZ-JMn" secondAttribute="centerX" id="L9k-mc-PXo"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eaU-eW-7zo" firstAttribute="width" secondItem="SOO-N0-4fD" secondAttribute="width" id="3cu-Es-Qsi"/>
+                                    <constraint firstItem="DY2-ac-b48" firstAttribute="width" secondItem="SOO-N0-4fD" secondAttribute="width" id="9fb-tq-kg2"/>
+                                    <constraint firstItem="eaU-eW-7zo" firstAttribute="height" secondItem="SOO-N0-4fD" secondAttribute="height" id="r1Z-TF-upy"/>
+                                    <constraint firstItem="DY2-ac-b48" firstAttribute="height" secondItem="SOO-N0-4fD" secondAttribute="height" id="sjB-gJ-bOM"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OQ0-5G-cSe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1TR-OB-Qzs"/>
+                            <constraint firstItem="OQ0-5G-cSe" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="Bew-tv-227"/>
+                            <constraint firstItem="OQ0-5G-cSe" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="eab-t6-clk"/>
+                            <constraint firstItem="OQ0-5G-cSe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="sRF-CG-ma1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="搜尋輸入頁" id="Igz-nH-Gpr"/>
+                    <connections>
+                        <outlet property="cnt_TXT" destination="eaU-eW-7zo" id="09G-qD-dXe"/>
+                        <outlet property="search_BTN" destination="DY2-ac-b48" id="Bpw-0h-ndL"/>
+                        <outlet property="search_TXT" destination="SOO-N0-4fD" id="i12-3X-Aql"/>
+                        <segue destination="WAp-Wm-ggp" kind="push" identifier="goResult" id="Ahq-M6-Kfc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1594" y="13"/>
+        </scene>
+        <!--搜尋結果-->
+        <scene sceneID="quN-o8-rgo">
+            <objects>
+                <viewController id="WAp-Wm-ggp" customClass="ResultVC" customModule="FlickerDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7S9-vn-kFh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8al-VO-4jo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="搜尋結果" id="FbU-sn-Gvw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NVw-El-4Cd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-686" y="13"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
