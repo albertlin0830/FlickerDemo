@@ -5,8 +5,12 @@ class ResultVC: UIViewController {
     
     @IBOutlet weak var contentCollectionView: UICollectionView!
     
+    var searchTxt:String!
     var photosModel:PhotosModel!
     var photos:[PhotoModel]!
+    var current_page:Int = 1
+    var total_page_count:Int = 0
+    var isFirstGetData:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +20,9 @@ class ResultVC: UIViewController {
         
         contentCollectionView.register(UINib.init(nibName: "PhotoCell", bundle: nil),
                                        forCellWithReuseIdentifier: "PhotoCell")
+        
+        total_page_count = photosModel.pages!
+        self.refreshAndLoadMoreSetUp()
         // Do any additional setup after loading the view.
     }
 }
@@ -56,5 +63,74 @@ extension ResultVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         let cellHeight = cellWidh * 5 / 4
         
         return CGSize(width: cellWidh, height: cellHeight)
+    }
+}
+
+extension ResultVC {
+    
+    func refreshAndLoadMoreSetUp() {
+        
+        contentCollectionView.refreshControl = UIRefreshControl.init()
+        
+        contentCollectionView.refreshControl?.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
+        self.enabledPull(toRefreshAndLoadMore: contentCollectionView)
+        self.hasNextPage = total_page_count > currentPage ? true : false
+    }
+    
+    @objc func refreshData() {
+
+        self.getSearchData(isRefresh: true)
+    }
+    
+    override func loadDatas() {
+        
+        self.getSearchData(isRefresh: false)
+    }
+    
+    func getSearchData(isRefresh:Bool) {
+        
+        if current_page == total_page_count {
+            
+            return
+        }
+        var current:Int = 1
+        
+        if !isRefresh {
+            
+            current = current_page + 1
+        }
+        
+        APIManager.shared.getPhotoData(search: searchTxt, per_page: "\(photosModel.perpage!)", currentPage: current, success: { (response) in
+            
+            let result:ResultModel = response as! ResultModel
+            
+            self.photosModel = result.photos!
+            self.current_page = self.photosModel.page!
+            self.total_page_count = self.photosModel.pages!
+            self.hasNextPage = self.total_page_count > self.currentPage ? true : false
+            
+            if isRefresh {
+                
+                self.photos = self.photosModel.photo
+                
+            } else {
+                
+                self.photos.append(contentsOf: self.photosModel.photo)
+            }
+            
+            DispatchQueue.main.async {
+                
+                self.contentCollectionView.reloadData()
+                
+                if isRefresh {
+                    
+                    self.contentCollectionView.refreshControl?.endRefreshing()
+                    
+                } else {
+                    
+                    self.endRefresh()
+                }
+            }
+        })
     }
 }

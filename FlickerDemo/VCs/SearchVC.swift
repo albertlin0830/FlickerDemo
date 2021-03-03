@@ -103,6 +103,7 @@ extension SearchVC {
             
             let resultVC:ResultVC = segue.destination as! ResultVC
             
+            resultVC.searchTxt = self.search_TXT.text!
             resultVC.photosModel = photosModel
             resultVC.photos = photos
         }

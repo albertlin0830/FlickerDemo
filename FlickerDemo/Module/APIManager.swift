@@ -18,7 +18,7 @@ class APIManager {
         let format = "json"
         let nojsoncallback = "1"
         
-        let queryItems: [URLQueryItem]? = [.init(name: "method", value: method), .init(name: "api_key", value: api_key), .init(name: "text", value: search), .init(name: "per_page", value: per_page), .init(name: "format", value: format), .init(name: "nojsoncallback", value: nojsoncallback)]
+        let queryItems: [URLQueryItem]? = [.init(name: "method", value: method), .init(name: "api_key", value: api_key), .init(name: "text", value: search), .init(name: "per_page", value: per_page), .init(name: "format", value: format), .init(name: "nojsoncallback", value: nojsoncallback), .init(name: "page", value: "\(currentPage)")]
         
         HttpTools.sendGet(path: "/services/rest/",
                          queryItems: queryItems,
