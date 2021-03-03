@@ -41,6 +41,7 @@ extension ResultVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             let imgUrl = "https://live.staticflickr.com/\(photo.server!)/\(photo.id!)_\(photo.secret!)_q.jpg"
 
             contentCell.content_LBL.text = photo.title
+            contentCell.content_LBL.adjustsFontSizeToFitWidth = true
             contentCell.content_IMG.sd_setImage(with: URL(string: imgUrl), placeholderImage: nil)
         }
         
