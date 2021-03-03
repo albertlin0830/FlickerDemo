@@ -19,6 +19,8 @@
 		DF78ADE325EE722400467865 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78ADE225EE722400467865 /* ResultModel.swift */; };
 		DF78ADE625EE7D7E00467865 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78ADE525EE7D7E00467865 /* PhotosModel.swift */; };
 		DF78ADE925EE7D8D00467865 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78ADE825EE7D8D00467865 /* PhotoModel.swift */; };
+		DF78ADEF25EFB63A00467865 /* HttpTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78ADEE25EFB63A00467865 /* HttpTools.swift */; };
+		DF78ADF425EFB92700467865 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DF78ADF325EFB92700467865 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,7 @@
 		DF78ADE225EE722400467865 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		DF78ADE525EE7D7E00467865 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		DF78ADE825EE7D8D00467865 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		DF78ADEE25EFB63A00467865 /* HttpTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpTools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF78ADCA25ED2C2800467865 /* PKHUD in Frameworks */,
+				DF78ADF425EFB92700467865 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				DF78ADC325ECEAB500467865 /* APIManager.swift */,
+				DF78ADEE25EFB63A00467865 /* HttpTools.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			name = FlickerDemo;
 			packageProductDependencies = (
 				DF78ADC925ED2C2800467865 /* PKHUD */,
+				DF78ADF325EFB92700467865 /* IQKeyboardManagerSwift */,
 			);
 			productName = FlickerDemo;
 			productReference = 6677902C25EBA48300B3B66C /* FlickerDemo.app */;
@@ -156,6 +162,7 @@
 			mainGroup = 6677902325EBA48300B3B66C;
 			packageReferences = (
 				DF78ADC825ED2C2800467865 /* XCRemoteSwiftPackageReference "PKHUD" */,
+				DF78ADF225EFB92700467865 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 6677902D25EBA48300B3B66C /* Products */;
 			projectDirPath = "";
@@ -184,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF78ADEF25EFB63A00467865 /* HttpTools.swift in Sources */,
 				DF78ADE625EE7D7E00467865 /* PhotosModel.swift in Sources */,
 				DF78ADA025ECB5B300467865 /* SearchVC.swift in Sources */,
 				DF78ADA425ECBDAB00467865 /* ResultVC.swift in Sources */,
@@ -403,6 +411,14 @@
 				minimumVersion = 5.4.0;
 			};
 		};
+		DF78ADF225EFB92700467865 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -410,6 +426,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF78ADC825ED2C2800467865 /* XCRemoteSwiftPackageReference "PKHUD" */;
 			productName = PKHUD;
+		};
+		DF78ADF325EFB92700467865 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF78ADF225EFB92700467865 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,17 +6,46 @@ class SearchVC: UIViewController {
     @IBOutlet weak var cnt_TXT: UITextField!
     @IBOutlet weak var search_BTN: UIButton!
     
+    var photosModel:PhotosModel!
+    var photos:[PhotoModel]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.initTxtStatus()
-        self.setBtnStatus(isEnable: false)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        self.search_TXT.text = ""
+        self.cnt_TXT.text = ""
+        self.setBtnStatus(isEnable: false)
     }
     
     @IBAction func doSearch(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "goResult", sender: self)
+        let text = self.search_TXT.text!
+        let per_page = self.cnt_TXT.text!
+
+        APIManager.shared.getPhotoData(search:text,
+                                    per_page:per_page,
+                                    currentPage:1,
+                                    success: { (response) in
+                                        
+                                        let result:ResultModel = response as! ResultModel
+                                        self.photosModel = result.photos!
+                                        self.photos = self.photosModel.photo
+                                        
+                                        if(self.photos.count > 0) {
+                                            
+                                            DispatchQueue.main.async {
+                                                self.performSegue(withIdentifier: "goResult", sender: self)
+                                            }
+                                        }
+                                    })
     }
 }
 
@@ -66,3 +95,16 @@ extension SearchVC:UITextFieldDelegate {
     }
 }
 
+extension SearchVC {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if "goResult" == segue.identifier {
+            
+            let resultVC:ResultVC = segue.destination as! ResultVC
+            
+            resultVC.photosModel = photosModel
+            resultVC.photos = photos
+        }
+    }
+}

@@ -6,42 +6,34 @@
 //
 
 import Foundation
-import PKHUD
 
 class APIManager {
 
-    static func sendGet(scheme:String!, host:String!, path:String!, queryItems: [URLQueryItem]? = nil) {
+    static let shared = APIManager()
+    
+    public func getPhotoData(search:String, per_page:String, currentPage:Int, success : @escaping Success) -> Void {
+
+        let method = "flickr.photos.search"
+        let api_key = "438339be156d4d3234195ec95a2b62f0"
+        let format = "json"
+        let nojsoncallback = "1"
         
-        var component = URLComponents()
+        let queryItems: [URLQueryItem]? = [.init(name: "method", value: method), .init(name: "api_key", value: api_key), .init(name: "text", value: search), .init(name: "per_page", value: per_page), .init(name: "format", value: format), .init(name: "nojsoncallback", value: nojsoncallback)]
         
-        component.scheme = scheme
-        component.host = host
-        component.path = path
-        component.queryItems = queryItems
-        
-        guard let url = component.url else {
-            fatalError("url error")
-        }
-        
-        let request = URLRequest(url: url)
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: request) { data, response, error in
-            if let error = error {
-                debugPrint("get error: = \(error.localizedDescription)")
-                return
-            }
-            guard let data = data else {
-                debugPrint("data is nil")
-                return
-            }
-            
-//            do {
-//                let result = try JSONDecoder().decode(ResultModel.self, from: data)
-//                debugPrint(result)
-//            } catch {
-//                debugPrint("decode error: = \(error.localizedDescription)")
-//            }
-        }
-        task.resume()
+        HttpTools.sendGet(path: "/services/rest/",
+                         queryItems: queryItems,
+                         success: { (response) in
+                            
+                            do {
+                                
+                                let result:ResultModel = try JSONDecoder().decode(ResultModel.self, from: response as! Data)
+
+                                success(result)
+                                
+                            } catch {
+                                
+                                debugPrint("decode error: = \(error.localizedDescription)")
+                            }
+                         })
     }
 }
