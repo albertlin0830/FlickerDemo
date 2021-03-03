@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -125,10 +126,41 @@
                     <view key="view" contentMode="scaleToFill" id="7S9-vn-kFh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LCW-kw-auc">
+                                <rect key="frame" x="20.5" y="88" width="373" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LNt-DG-Evd">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LCX-Bq-kY4">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="GFV-aQ-btT">
+                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8al-VO-4jo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LCW-kw-auc" firstAttribute="top" secondItem="8al-VO-4jo" secondAttribute="top" id="3zo-7V-rgn"/>
+                            <constraint firstItem="LCW-kw-auc" firstAttribute="centerX" secondItem="8al-VO-4jo" secondAttribute="centerX" id="Nsy-ey-a8c"/>
+                            <constraint firstItem="8al-VO-4jo" firstAttribute="bottom" secondItem="LCW-kw-auc" secondAttribute="bottom" id="SK8-6M-vaV"/>
+                            <constraint firstItem="LCW-kw-auc" firstAttribute="width" secondItem="7S9-vn-kFh" secondAttribute="width" multiplier="0.9" id="m1a-c1-zre"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="搜尋結果" id="FbU-sn-Gvw"/>
+                    <connections>
+                        <outlet property="contentCollectionView" destination="LCW-kw-auc" id="Af8-tc-kp6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVw-El-4Cd" sceneMemberID="firstResponder"/>
             </objects>

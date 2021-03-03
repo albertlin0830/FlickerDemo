@@ -21,6 +21,10 @@
 		DF78ADE925EE7D8D00467865 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78ADE825EE7D8D00467865 /* PhotoModel.swift */; };
 		DF78ADEF25EFB63A00467865 /* HttpTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78ADEE25EFB63A00467865 /* HttpTools.swift */; };
 		DF78ADF425EFB92700467865 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DF78ADF325EFB92700467865 /* IQKeyboardManagerSwift */; };
+		DF78ADF925EFBD1A00467865 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78ADF725EFBD1A00467865 /* PhotoCell.swift */; };
+		DF78ADFA25EFBD1A00467865 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF78ADF825EFBD1A00467865 /* PhotoCell.xib */; };
+		DF78AE0025EFC5E900467865 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DF78ADFF25EFC5E900467865 /* SDWebImage */; };
+		DF78AE0225EFC5E900467865 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DF78AE0125EFC5E900467865 /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,8 @@
 		DF78ADE525EE7D7E00467865 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		DF78ADE825EE7D8D00467865 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		DF78ADEE25EFB63A00467865 /* HttpTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpTools.swift; sourceTree = "<group>"; };
+		DF78ADF725EFBD1A00467865 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		DF78ADF825EFBD1A00467865 /* PhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF78AE0025EFC5E900467865 /* SDWebImage in Frameworks */,
 				DF78ADCA25ED2C2800467865 /* PKHUD in Frameworks */,
+				DF78AE0225EFC5E900467865 /* SDWebImageMapKit in Frameworks */,
 				DF78ADF425EFB92700467865 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +80,7 @@
 		6677902E25EBA48300B3B66C /* FlickerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DF78ADF625EFBD1A00467865 /* Cell */,
 				DF78ADE125EE721200467865 /* Model */,
 				DF78ADC225ECEA7C00467865 /* Module */,
 				DF78AD9E25ECB5B300467865 /* VCs */,
@@ -113,6 +122,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DF78ADF625EFBD1A00467865 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DF78ADF725EFBD1A00467865 /* PhotoCell.swift */,
+				DF78ADF825EFBD1A00467865 /* PhotoCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +150,8 @@
 			packageProductDependencies = (
 				DF78ADC925ED2C2800467865 /* PKHUD */,
 				DF78ADF325EFB92700467865 /* IQKeyboardManagerSwift */,
+				DF78ADFF25EFC5E900467865 /* SDWebImage */,
+				DF78AE0125EFC5E900467865 /* SDWebImageMapKit */,
 			);
 			productName = FlickerDemo;
 			productReference = 6677902C25EBA48300B3B66C /* FlickerDemo.app */;
@@ -163,6 +183,7 @@
 			packageReferences = (
 				DF78ADC825ED2C2800467865 /* XCRemoteSwiftPackageReference "PKHUD" */,
 				DF78ADF225EFB92700467865 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				DF78ADFE25EFC5E900467865 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 6677902D25EBA48300B3B66C /* Products */;
 			projectDirPath = "";
@@ -178,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF78ADFA25EFBD1A00467865 /* PhotoCell.xib in Resources */,
 				6677903C25EBA48500B3B66C /* LaunchScreen.storyboard in Resources */,
 				6677903925EBA48500B3B66C /* Assets.xcassets in Resources */,
 				6677903725EBA48300B3B66C /* Main.storyboard in Resources */,
@@ -197,6 +219,7 @@
 				DF78ADA425ECBDAB00467865 /* ResultVC.swift in Sources */,
 				DF78ADE325EE722400467865 /* ResultModel.swift in Sources */,
 				DF78ADC425ECEAB500467865 /* APIManager.swift in Sources */,
+				DF78ADF925EFBD1A00467865 /* PhotoCell.swift in Sources */,
 				6677903025EBA48300B3B66C /* AppDelegate.swift in Sources */,
 				DF78ADE925EE7D8D00467865 /* PhotoModel.swift in Sources */,
 				6677903225EBA48300B3B66C /* SceneDelegate.swift in Sources */,
@@ -355,6 +378,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.icarry.FlickerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -374,6 +398,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.icarry.FlickerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -419,6 +444,14 @@
 				minimumVersion = 6.5.6;
 			};
 		};
+		DF78ADFE25EFC5E900467865 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -431,6 +464,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DF78ADF225EFB92700467865 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		DF78ADFF25EFC5E900467865 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF78ADFE25EFC5E900467865 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		DF78AE0125EFC5E900467865 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF78ADFE25EFC5E900467865 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
